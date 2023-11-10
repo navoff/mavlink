@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<mavlink>
+  <include>common.xml</include>
+  <version>3</version>
+  <enums>
+    <enum name="ML_FW_TYPE">
+      <description>Firmware type</description>
+      <entry value="0" name="FW_TYPE__BOOTLOADER">
+        <description>This is bootloader firmware</description>
+      </entry>
+      <entry value="1" name="FW_TYPE__APPLICATION">
+        <description>This is application firmware</description>
+      </entry>
+    </enum>
+  </enums>
+  <messages>
+    <message id="1000" name="FW_VERSION">
+      <description>Information about device firmware version</description>
+      <field type="uint32_t" name="type">Firmware type</field>
+      <field type="uint8_t" name="version_major">FW version (major part).</field>
+      <field type="uint8_t" name="version_minor">FW version (minor part).</field>
+      <field type="uint16_t" name="build">Build number. 0xFFFF - if it is manual build</field>
+    </message>
+    <message id="1001" name="DEVICE_STATUS">
+      <description>General device status</description>
+      <field type="uint32_t" name="timestamp">Timeastamp from MCU boot, ms</field>
+    </message>
+  </messages>
+</mavlink>
